@@ -225,7 +225,7 @@ def resetPassword(request):
 def account(request):
     orders = Order.objects.order_by('-created_at').filter(user_id=request.user.id, is_ordered=True)
     orders_count = orders.count()
-    user_profile = UserProfile.objects.get(user_id=request.user.id)
+    user_profile = UserProfile.objects.get(user=request.user)
     context = {
         'orders_count': orders_count,
         'user_profile': user_profile,
