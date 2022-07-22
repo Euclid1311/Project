@@ -103,11 +103,8 @@ def place_order(request, total=0, quantity=0):
 
     
     if request.method == 'POST':
-        print('amal')
         form =OrderForm(request.POST)
-        print('amal')
         if form.is_valid():
-            print('amal')
             #store billing information in order table
             data               =  Order()   #to get the instance of order
             data.user          =  current_user
