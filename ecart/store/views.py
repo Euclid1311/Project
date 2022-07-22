@@ -1,10 +1,10 @@
-from ast import keyword
-import imp
-from itertools import product
+
+
+
 from django.shortcuts import get_object_or_404, render
 
 from cart.models import Cartitem
-from . models import Product
+from . models import Product, ProductGallery
 from category.models import MainCategory,Category,Sub_Category
 from cart.models import Cartitem
 from cart.views import _cart_id
@@ -68,9 +68,13 @@ def product_detail(request,main_category_slug,category_slug,sub_category_slug,pr
     except Exception as e:
         raise e
     
+    product_gallery = ProductGallery.objects.filter(product_id=single_product.id)
+
+
     context = {
         'single_product': single_product,
-        'in_cart'       : in_cart
+        'in_cart'       : in_cart,
+        'product_gallery': product_gallery,
     }
     return render(request, 'store/product_detail.html',context)
 
