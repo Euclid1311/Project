@@ -107,22 +107,24 @@
         
                             {% for main_category in links%}
         
-                            <li>
+                            {% comment %} <li> {% endcomment %}
                                 <a href="{{ maincatogory.get_url }}">{{main_category.category_name}}<i class=" fa fa-angle-down"></i></a>
                                 <ul class="mega-menu">
                                     {% for cat in catlinks%}
-                                    <li><a href="{{ cat.get_url }}"
-                                            style="color: orange">{{cat.category_name}}</a>
+                                    {% comment %} <li>  {% endcomment %}
+                                           <a href="{{ cat.get_url }}"
+                                            style="color: grey">{{cat.category_name}}</a>
                                    <ul class="mega-item">
                                             {% for subcat in cat.sub_category_set.all %}
-                                            <li><a href="{{ subcat.get_url }}">{{subcat.category_name}}</a>
+                                            <li>
+                                                <a href="{{ subcat.get_url }}" class="text-decoration-none" >{{subcat.category_name}}</a>
                                             </li>
                                             {% endfor %}
                                         </ul>
-                                    </li>
+                                    {% comment %} </li> {% endcomment %}
                                     {% endfor %}
                                 </ul>   
-                            </li>
+                            {% comment %} </li> {% endcomment %}
                             {% endfor %}
                         </ul>
                     </nav>
