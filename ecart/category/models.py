@@ -32,8 +32,11 @@ class Category(models.Model):
         verbose_name ='Category'
         verbose_name_plural='categories'
     
+    def get_url(self):
+            return reverse('product_by_category',args=[self.main_category.slug,self.slug])
+    
     def __str__(self):
-        return self.main_category.category_name + "---" +self.category_name
+        return self.category_name
 
 class Sub_Category(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
@@ -45,6 +48,9 @@ class Sub_Category(models.Model):
     class Meta:
         verbose_name ='sub_category'
         verbose_name_plural='sub_categories'
+    
+    def get_url(self):
+            return reverse('product_by_sub_category',args=[self.category.main_category.slug,self.category.slug,self.slug])
 
     def __str__(self):
-        return self.category.main_category.category_name + "---" + self.category.category_name +'--'+self.category_name
+        return self.category_name

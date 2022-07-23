@@ -28,6 +28,7 @@ class Product(models.Model):
     sub_category = models.ForeignKey(Sub_Category,on_delete=models.CASCADE,null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date= models.DateTimeField(auto_now_add=True)
+    is_popular   = models.BooleanField(default=False)
 
     def get_url(self):
         return reverse('product_detail', args=[self.main_category.slug,self.category.slug,self.sub_category.slug,self.slug])

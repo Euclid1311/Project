@@ -1,6 +1,7 @@
 
 
 
+from unicodedata import category
 from django.shortcuts import get_object_or_404, render
 
 from cart.models import Cartitem
@@ -52,10 +53,13 @@ def store(request, main_category_slug=None,category_slug=None,sub_category_slug=
         page          = request.GET.get('page')
         paged_products= paginator.get_page(page)
         product_count = products.count()
-
+    main_category = MainCategory.objects.all()
+    category = Category.objects.all()
     context = {
         'products': paged_products,
         'product_count' : product_count,
+        'main': main_category,
+        'category': category
     }
     return render(request, 'store/store.html',context)
 

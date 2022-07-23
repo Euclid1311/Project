@@ -19,7 +19,10 @@
     <div class="container">
     
     <div class="row">
+        
+        
         <aside class="col-md-3">
+            
             
     <div class="card">
         <article class="filter-group">
@@ -29,7 +32,7 @@
                     <h6 class="title">Categories</h6>
                 </a>
             </header>
-            <div class="filter-content collapse show" id="collapse_1" style="">
+            {% comment %} <div class="filter-content collapse show" id="collapse_1" style="">
                 <div class="card-body">
                     
                     <ul class="list-menu">
@@ -39,35 +42,128 @@
                     </ul>
     
                 </div> <!-- card-body.// -->
-            </div>
+            </div> {% endcomment %}
+            
         </article> <!-- filter-group  .// -->
+        <div class="widgets_inner">
+            <ul class="list">
+                <li>
+                    <a href="{% url 'store' %}">ALL</a>
+                </li>
+
+               {% comment %} {% for main_category in main %}
+                   <li>
+                        <div class="dropdown">
+                            <!-- <a class="btn  dropdown-toggle" href="{{ main_category.get_url}}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true"> -->
+                            <a class="btn btn-secondary dropdown-toggle" href="{{ main_category.get_url}}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                {{main_category.category_name}}</a>
+                            <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink"> -->
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                {% for category in main_category.category_set.all%}
+                                    <li>
+                                        <a class='dropdown-item' href="{{category.get_url}}">{{category.category_name}}</a>
+                                        <ul>
+                                            {% for i in category.subcategory_set.all %}
+                                            <li>
+                                                <a id="sub_dropdown" href="{{i.get_url}}">{{i.sub_category_name}}</li></a>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %} {% endcomment %}
+
+                <!-- Example single danger button -->
+                
+                {% comment %} <div class="btn-group">
+                {% for main_category in main %}
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{main_category}}
+                    </button>
+                    <div class="dropdown-menu">
+                    {% for category in main_category.category_set.all%}
+                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{category}}
+                        </button>
+
+                          {% for sub_category in category.sub_category_set.all%}
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">{{sub_category.category_name}}</a>
+                          </div>
+                          {% endfor %}
+                    {%endfor%}
+                    </div>
+                </div>
+                {% endfor %}
+                
+                </div> {% endcomment %}
+
+                <div class="cat__menu">
+                    <nav id="mobile-menu" style="display: block;">
+                        <ul>
+        
+                            {% for main_category in links%}
+        
+                            <li>
+                                <a href="{{ maincatogory.get_url }}">{{main_category.category_name}}<i class=" fa fa-angle-down"></i></a>
+                                <ul class="mega-menu">
+                                    {% for cat in catlinks%}
+                                    <li><a href="{{ cat.get_url }}"
+                                            style="color: orange">{{cat.category_name}}</a>
+                                   <ul class="mega-item">
+                                            {% for subcat in cat.sub_category_set.all %}
+                                            <li><a href="{{ subcat.get_url }}">{{subcat.category_name}}</a>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                    {% endfor %}
+                                </ul>   
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+                
+            </ul>
+        </div>
+
+
+        
+
+        <!-- Example single danger button -->
+
+
         <article class="filter-group">
             <header class="card-header">
                 <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
                     <i class="icon-control fa fa-chevron-down"></i>
-                    <h6 class="title">Sizes </h6>
+                    <h6 class="title"></h6>
                 </a>
             </header>
             <div class="filter-content collapse show" id="collapse_4" style="">
                 <div class="card-body">
                   <label class="checkbox-btn">
                     <input type="checkbox">
-                    <span class="btn btn-light"> XS </span>
+                    <span class="btn btn-light">  </span>
                   </label>
     
                   <label class="checkbox-btn">
                     <input type="checkbox">
-                    <span class="btn btn-light"> SM </span>
+                    <span class="btn btn-light">  </span>
                   </label>
     
                   <label class="checkbox-btn">
                     <input type="checkbox">
-                    <span class="btn btn-light"> LG </span>
+                    <span class="btn btn-light">  </span>
                   </label>
     
                   <label class="checkbox-btn">
                     <input type="checkbox">
-                    <span class="btn btn-light"> XXL </span>
+                    <span class="btn btn-light">  </span>
                   </label>
             </div> <!-- card-body.// -->
             </div>
