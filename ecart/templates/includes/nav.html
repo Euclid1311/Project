@@ -32,7 +32,7 @@
             </a> <!-- brand-wrap.// -->
         </div>
         <div class="col-lg col-sm col-md col-6 flex-grow-0">
-            <div class="category-wrap dropdown d-inline-block float-right">
+            {% comment %} <div class="category-wrap dropdown d-inline-block float-right">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> 
                     <i class=""></i> All category 
                 </button>
@@ -44,7 +44,7 @@
                       
                     {% endfor %}
                 </div>
-            </div>  <!-- category-wrap.// -->
+            </div>  <!-- category-wrap.// --> {% endcomment %}
         </div> <!-- col.// -->
         <a href="{% url 'store' %}" class="btn btn-outline-dark">Store</a>
         <div class="col-lg  col-md-6 col-sm-12 col">
