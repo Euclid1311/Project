@@ -52,7 +52,7 @@
     </li>
  
     <!-- Nav Item - Pages Collapse Menu -->            
-    <li class="nav-item">
+    {% comment %} <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
@@ -65,7 +65,7 @@
                 <a class="collapse-item" href="{% url 'cart_table' 2 %}">Cart Items</a>
             </div>
         </div>
-    </li>
+    </li> {% endcomment %}
 
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -197,11 +197,11 @@
     </div>
 
     <!-- Sidebar Message -->
-    <div class="sidebar-card d-none d-lg-flex">
+    {% comment %} <div class="sidebar-card d-none d-lg-flex">
         <img class="sidebar-card-illustration mb-2" src="{% static 'admin/img/undraw_rocket.svg'%}" alt="...">
         <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
         <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-    </div>
+    </div> {% endcomment %}
 
 </ul>
 <!-- End of Sidebar -->
