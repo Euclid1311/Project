@@ -1,5 +1,7 @@
+from dataclasses import fields
 from django import forms
-from .models import Product,Variation
+from .models import Product,Variation, ReviewRating
+
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -44,4 +46,8 @@ class ProductForm(forms.ModelForm):
 
 # class VariationForm(forms.ModelForm):
 #     class Meta:
-        
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = ReviewRating
+        fields = ['subject', 'review', ]
