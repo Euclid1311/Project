@@ -306,3 +306,13 @@ def order_detail(request, order_id):
 
 
     return render(request, 'accounts/order_detail.html', context)
+
+
+
+
+def cancel_order(request,order_number):
+    order = Order.objects.get(order_number=order_number)
+    order.status = 'Cancelled'
+    order.save()
+    messages.success(request,'Order has been cancelled')
+    return redirect('my_orders')
